@@ -22,25 +22,45 @@ function generateUUID() {
 
 const querySelect = {
     select: {
-        listThemes: "SELECT * FROM themes",
+        listThemes: "SELECT themeID, themeName, themeLabelBGcolor, themeLabelTXTcolor FROM themes.templates",
+        getTheme: "SELECT * FROM themes.templates where themeID = $1"
     },
     insert: {
-        addTheme: "INSERT INTO themes (*) " +
+        addTheme: "INSERT INTO themes.templates (*) " +
             "VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, 'n', now())",
     },
     update: {
-        editTheme: "UPDATE themes SET * = $2 WHERE ID = $1"
+        editTheme: "UPDATE themes.templates SET * = $2 WHERE ID = $1"
     },
     delete: {
-       deleteTheme: "DELETE FROM themes WHERE ID = $1"
+       deleteTheme: "DELETE FROM themes.templates WHERE ID = $1"
     }
 }
 
 // ---------------------------------------------------- LISTS ----------------------------------------------------
-const getThemes = async () => {
+const listThemes = async () => {
     try {
         return await new Promise(function (resolve, reject) {
             pool.query(querySelect.select.listThemes, (error, results) => {
+                if (error) {
+                    reject(error);
+                }
+                if (results && results.rows) {
+                    resolve(results.rows);
+                } else {
+                    reject(new Error("No results found"));
+                }
+            });
+        });
+    } catch (error_1) {
+        console.error(error_1);
+        throw new Error("Internal server error");
+    }
+};
+const getThemeByID = async (id) => {
+    try {
+        return await new Promise(function (resolve, reject) {
+            pool.query(querySelect.select.getTheme, [id], (error, results) => {
                 if (error) {
                     reject(error);
                 }
@@ -60,11 +80,9 @@ const getThemes = async () => {
 
 
 
-
 // #############################################################################################
 
 module.exports = {
-    listProducts,
-    listCategories,
-    listSubcats
+    listThemes,
+    getThemeByID
 };

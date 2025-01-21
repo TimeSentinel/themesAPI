@@ -8,7 +8,7 @@ PROJECT: productsAPI;
 const express = require("express");
 const app = express()
 const port = 3002
-const productQueries = require("./ThemeQueries.tsx")
+const themeQueries = require("./ThemeQueries.tsx")
 
 app.use(express.json())
 app.use(function (req, res, next) {
@@ -17,18 +17,17 @@ app.use(function (req, res, next) {
     if (allowedOrigins.includes(origin)) {
         res.setHeader('Access-Control-Allow-Origin', origin);
     }
-    // res.setHeader('Access-Control-Allow-Origin', 'http://localhost:5173');
     res.setHeader('Access-Control-Allow-Methods', 'GET,POST,PUT,DELETE,OPTIONS');
     res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Access-Control-Allow-Headers');
     next();
 });
 
 
-// -------------------------------------------- GET --------------------------------------------
+// --------------------------------------------------------------------------------------
 
-// --------------- PRODUCTS ---------------
+// --------------- select ---------------
 app.get('/themes', (req, res) => {
-    productQueries.getThemes()
+    themeQueries.listThemes()
         .then(response => {
             res.status(200).send(response);
         })
@@ -36,9 +35,9 @@ app.get('/themes', (req, res) => {
             res.status(500).send(error);
         })
 })
-// --------------- CATEGORIES ---------------
-app.get('/theme:id', (req, res) => {
-    productQueries.getThemeById(req.params.id)
+// --------------- by id ---------------
+app.get('/theme/:id', (req, res) => {
+    themeQueries.getThemeByID(req.params.id)
         .then(response => {
             res.status(200).send(response);
         })
@@ -47,16 +46,14 @@ app.get('/theme:id', (req, res) => {
         })
 })
 
-// --------------- SUBCATEGORIES ---------------
-app.get('/subcats', (req, res) => {
-    productQueries.listSubcats()
-        .then(response => {
-            res.status(200).send(response);
-        })
-        .catch(error => {
-            res.status(500).send(error);
-        })
-})
+// --------------- update ---------------
+
+
+// --------------- insert ---------------
+
+
+// --------------- delete ---------------
+
 
 
 // #############################################################################################
