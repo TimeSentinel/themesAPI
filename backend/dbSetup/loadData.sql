@@ -3,10 +3,10 @@
 -- (c) 2025 Lance Stubblefield
 
 
-INSERT INTO themes.templates(themeID, themeName, themeLabelBGcolor, themeLabelTXTcolor, logoUrl,
-                             faintColor, lightColor, softColor, mediumColor, darkColor, veryDarkColor,
-                             brightColor, okColor, highlightColor, alertColor, lightShade, mediumShade,
-                             darkShade, veryDarkShade, body, h1, h2, h3, h4, h5, font, fontSize, button, p)
+INSERT INTO themes.templates(themeid, themename, themeLabelbgcolor, themeLabeltxtcolor, logourl,
+                             faintcolor, lightcolor, softcolor, mediumcolor, darkcolor, verydarkcolor,
+                             brightcolor, okcolor, highlightcolor, alertcolor, lightshade, mediumshade,
+                             darkshade, verydarkshade, body, h1, h2, h3, h4, h5, font, fontsize, button, p)
 VALUES ('505c8d23-1037-4e7c-8fcf-5b7e35748a55', 'Apple', '#fa7a71', '#bc1105', '/themes/apple/logo.webp', '', '#ffe6e6',
         '#b3ffcc', '#e60000', '#800000', '#330000', '#ff9900', '#25e507', '#fde907', '#f9063f', '#f1f2f3', '#bbbfc3',
         '#596066', '#272a2d', 'padding: 0px;  margin: 0px; background-color: #d5d1ca;',

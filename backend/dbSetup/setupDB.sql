@@ -2,7 +2,7 @@
 -- Setup table
 -- (c) 2025 Lance Stubblefield
 
-CREATE SCHEMA themes
+CREATE SCHEMA themes;
 
 CREATE TABLE IF NOT EXISTS themes.templates
     (
