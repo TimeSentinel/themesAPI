@@ -30,6 +30,7 @@ app.get('/themes', (req, res) => {
     themeQueries.listThemes()
         .then(response => {
             res.status(200).send(response);
+            console.log(response)
         })
         .catch(error => {
             res.status(500).send(error);
@@ -40,6 +41,7 @@ app.get('/theme/:id', (req, res) => {
     themeQueries.getThemeByID(req.params.id)
         .then(response => {
             res.status(200).send(response);
+            console.log(response)
         })
         .catch(error => {
             res.status(500).send(error);
