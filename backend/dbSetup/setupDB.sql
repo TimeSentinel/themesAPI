@@ -36,5 +36,6 @@ CREATE TABLE IF NOT EXISTS themes.templates
     button             varchar(255),
     p                  varchar(255),
     sitetitle          varchar(255),
-    sitetagline        varchar(255)
+    sitetagline        varchar(255),
+    heroimage          varchar(255)
 )
