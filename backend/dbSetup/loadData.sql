@@ -63,7 +63,7 @@ VALUES ('505c8d23-1037-4e7c-8fcf-5b7e35748a55', 'Apple', '#fa7a71', '#bc1105', '
         'fontSize: 1.5rem; line-height: 1.75rem; font-weight: 600; color: #743812',
         'fontSize: 1.25rem; line-height: 1.75rem; color: #743812',
         'fontSize: 1.125rem; line-height: 1.75rem; color: #743812', 'fontStyle: italic; color: #743812;',
-        '"Times New Roman", serif', '20px;', '', '', 'Getaway ~', '', ''),
+        '"Times New Roman", serif', '20px;', '', '', 'Oceanside Getaway ~', '', ''),
        ('1f4d70a1-e18d-4fce-8f67-eb204d7c53f1', 'Surf', '#b3d5ec', '#3104fc', '/themes/surf/logo.webp', '', 'e6ffe6',
         '#00cccc', '#ff99ff', '#004d00', '#001a00', '#66ffff', '#25e507', '#ed42c7', '#ef9e39', '#dddfe1', '#aeb4b9',
         '#596066', '#272a2d', 'padding: 0px; margin: 0px; background-color: #edf4fc;',
