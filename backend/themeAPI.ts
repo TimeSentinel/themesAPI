@@ -10,6 +10,9 @@ const app = express()
 const port = 3002
 const themeQueries = require("./ThemeQueries.tsx")
 
+// ------------------- DEBUG ------------------
+const debug = false
+
 app.use(express.json())
 app.use(function (req, res, next) {
     const allowedOrigins = ['http://localhost:5173', 'http://localhost:5174'];
@@ -30,7 +33,7 @@ app.get('/themes', (req, res) => {
     themeQueries.listThemes()
         .then(response => {
             res.status(200).send(response);
-            console.log(response)
+            if (debug) console.log(response)
         })
         .catch(error => {
             res.status(500).send(error);
@@ -41,7 +44,7 @@ app.get('/theme/:id', (req, res) => {
     themeQueries.getThemeByID(req.params.id)
         .then(response => {
             res.status(200).send(response);
-            console.log(response)
+            if (debug) console.log(response)
         })
         .catch(error => {
             res.status(500).send(error);
@@ -57,9 +60,7 @@ app.get('/theme/:id', (req, res) => {
 // --------------- delete ---------------
 
 
-
 // #############################################################################################
-
 
 
 app.listen(port, () => {

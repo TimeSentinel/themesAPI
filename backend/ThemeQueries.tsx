@@ -5,6 +5,9 @@ PROJECT: productsAPI;
 (c) 2025 Lance Stubblefield
 --------------------------------------- */
 
+// ------------------- DEBUG ------------------
+const debug = false
+
 const Pool = require("pg").Pool;
 require("dotenv").config();
 
@@ -18,7 +21,9 @@ const pool = new Pool({
 
 function generateUUID() {
     const crypto = require("crypto");
-    return crypto.randomUUID();
+    const newUUID = crypto.randomUUID();
+    if (debug) console.log("UUID: " + newUUID);
+    return newUUID;
 }
 
 const querySelect = {
