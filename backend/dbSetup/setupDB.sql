@@ -6,7 +6,7 @@ CREATE SCHEMA themes;
 
 CREATE TABLE IF NOT EXISTS themes.templates
 (
-    themeid            UUID NOT NULL UNIQUE,
+    themeid            UUID NOT NULL unique primary key,
     themename          varchar(100),
     themelabelbgcolor  varchar(10),
     themelabeltxtcolor varchar(10),
